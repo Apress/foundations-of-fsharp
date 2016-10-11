@@ -1,0 +1,1 @@
+<% @ServiceHost Debug="true" Service="ServiceModule+ImageService" %>

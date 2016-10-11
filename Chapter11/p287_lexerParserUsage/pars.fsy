@@ -1,0 +1,29 @@
+/* This example shows how to write a parser file which creates */
+/* nodes that carry F# values. */
+
+%{
+
+open Strangelights.ExpressionParser.Ast
+
+%}
+
+%start Expression
+%token <string> ID
+%token <System.Double> FLOAT
+%token LPAREN RPAREN EOF MULTI DIV PLUS MINUS
+%type < Strangelights.ExpressionParser.Ast.Expr > Expression
+
+%left MULTI
+%left DIV
+%left PLUS
+%left MINUS
+
+%%
+
+Expression: ID { Ident($1) }
+    | FLOAT {  Val($1)  }
+    | LPAREN Expression RPAREN {  $2  }
+    | Expression MULTI Expression {  Multi($1, $3)  }
+    | Expression DIV Expression {  Div($1, $3)  }
+    | Expression PLUS Expression {  Plus($1, $3)  }
+    | Expression MINUS Expression {  Minus($1, $3)  }

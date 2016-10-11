@@ -1,0 +1,9 @@
+* v0.2 -- released: 2006-12-28
+    + BUG FIX: in v0.1, the URL and Title fields were swapped.
+    + BUG FIX: escape any HTML in the Title field. Unescaped HTML would cause
+        SOAP clients to fault.
+    + BUG FIX: the estimatedTotalResultsCount field is now 0 if no results
+        were returned. Previously, it was undef.
+	
+* v0.1 -- released: 2006-12-19
+    + Initial release

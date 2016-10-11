@@ -1,0 +1,1 @@
+val funkyFunction : string -> string

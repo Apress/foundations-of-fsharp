@@ -1,0 +1,13 @@
+HTTP/1.1 100 Continue
+
+HTTP/1.1 200 OK
+Date: Wed, 24 Jan 2007 06:38:42 GMT
+Server: Apache/2.0.54 (Unix) PHP/4.4.4 mod_ssl/2.0.54 OpenSSL/0.9.7e mod_fastcgi/2.4.2 DAV/2 SVN/1.3.2
+SOAPServer: SOAP::Lite/Perl/0.66.1
+Content-Length: 2034
+Vary: Accept-Encoding
+Keep-Alive: timeout=15, max=100
+Connection: Keep-Alive
+Content-Type: text/xml; charset=utf-8
+
+<?xml version="1.0" encoding="UTF-8"?><soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" soap:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"><soap:Body><doGoogleSearchResponse xmlns="urn:GoogleSearch"><s-gensym3><estimatedTotalResultsCount xsi:type="xsd:int">1680000000</estimatedTotalResultsCount><startIndex xsi:type="xsd:int">0</startIndex><resultElements soapenc:arrayType="xsd:anyType[3]" xsi:type="soapenc:Array"><item><URL xsi:type="xsd:anyURI">http://www.fuckedcompany.com/</URL><snippet xsi:type="xsd:string">Offering bad news about dot.com companies and betting on the demise of companies.</snippet><cachedSize xsi:type="xsd:string">33k</cachedSize><title xsi:type="xsd:string">FuckedCompany.com - Official lubricant of the new economy</title></item><item><URL xsi:type="xsd:anyURI">http://en.wikipedia.org/wiki/Fahrenheit</URL><snippet xsi:type="xsd:base64Binary">RmFocmVuaGVpdCBub3RlZCB0aGF0IGhpcyBzY2FsZSBwbGFjZWQgdGhlIGZyZWV6aW5nIHBvaW50IG9mIHdhdGVyIGF0IDMyIMKwRiBhbmQgdGhlIGJvaWxpbmcgcG9pbnQgYXQgMjEyIMKwRiwgYSBuZWF0IDE4MCBkZWdyZWVzIGFwYXJ0LiAuLi4=</snippet><cachedSize xsi:type="xsd:string">32k</cachedSize><title xsi:type="xsd:string">Fahrenheit - Wikipedia, the free encyclopedia</title></item><item><URL xsi:type="xsd:anyURI">http://www.f-secure.com/</URL><snippet xsi:type="xsd:string">F-Secure Corporation protects consumers and businesses against computer viruses and other threats from the Internet and mobile networks.</snippet><cachedSize xsi:type="xsd:string">19k</cachedSize><title xsi:type="xsd:string">F-Secure.com &amp;amp;gt; F-Secure Corporation protects consumers and ...</title></item></resultElements><searchTime xsi:type="xsd:float">0.05</searchTime><endIndex xsi:type="xsd:int">3</endIndex><estimateIsExact xsi:type="xsd:int">0</estimateIsExact></s-gensym3></doGoogleSearchResponse></soap:Body></soap:Envelope>

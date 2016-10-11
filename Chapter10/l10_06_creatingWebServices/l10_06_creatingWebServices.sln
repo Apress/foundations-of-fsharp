@@ -1,0 +1,60 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "C:\...\CreatingWebServices\", ".", "{7122C181-1ADF-4A4E-922D-D59F99B5AE18}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.VirtualPath = "/CreatingWebServices"
+		Debug.AspNetCompiler.PhysicalPath = "."
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\CreatingWebServices\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/CreatingWebServices"
+		Release.AspNetCompiler.PhysicalPath = "."
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\CreatingWebServices\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "1033"
+		DefaultWebSiteLanguage = "Visual Basic"
+	EndProjectSection
+EndProject
+Project("{94D665CA-D915-4DE1-AA53-913450A1AE2D}") = "FSharpWebServices", "FSharpWebServices.fsharpp", "{0111A65E-A934-46C4-96D7-C9CD49B183F9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|.NET = Debug|.NET
+		Debug|Mixed Platforms = Debug|Mixed Platforms
+		Debug|Win32 = Debug|Win32
+		Release|.NET = Release|.NET
+		Release|Mixed Platforms = Release|Mixed Platforms
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7122C181-1ADF-4A4E-922D-D59F99B5AE18}.Debug|.NET.ActiveCfg = Debug|.NET
+		{7122C181-1ADF-4A4E-922D-D59F99B5AE18}.Debug|.NET.Build.0 = Debug|.NET
+		{7122C181-1ADF-4A4E-922D-D59F99B5AE18}.Debug|Mixed Platforms.ActiveCfg = Debug|.NET
+		{7122C181-1ADF-4A4E-922D-D59F99B5AE18}.Debug|Mixed Platforms.Build.0 = Debug|.NET
+		{7122C181-1ADF-4A4E-922D-D59F99B5AE18}.Debug|Win32.ActiveCfg = Debug|.NET
+		{7122C181-1ADF-4A4E-922D-D59F99B5AE18}.Release|.NET.ActiveCfg = Debug|.NET
+		{7122C181-1ADF-4A4E-922D-D59F99B5AE18}.Release|.NET.Build.0 = Debug|.NET
+		{7122C181-1ADF-4A4E-922D-D59F99B5AE18}.Release|Mixed Platforms.ActiveCfg = Debug|.NET
+		{7122C181-1ADF-4A4E-922D-D59F99B5AE18}.Release|Mixed Platforms.Build.0 = Debug|.NET
+		{7122C181-1ADF-4A4E-922D-D59F99B5AE18}.Release|Win32.ActiveCfg = Debug|.NET
+		{0111A65E-A934-46C4-96D7-C9CD49B183F9}.Debug|.NET.ActiveCfg = Debug|Win32
+		{0111A65E-A934-46C4-96D7-C9CD49B183F9}.Debug|Mixed Platforms.ActiveCfg = Debug|Win32
+		{0111A65E-A934-46C4-96D7-C9CD49B183F9}.Debug|Mixed Platforms.Build.0 = Debug|Win32
+		{0111A65E-A934-46C4-96D7-C9CD49B183F9}.Debug|Win32.ActiveCfg = Debug|Win32
+		{0111A65E-A934-46C4-96D7-C9CD49B183F9}.Debug|Win32.Build.0 = Debug|Win32
+		{0111A65E-A934-46C4-96D7-C9CD49B183F9}.Release|.NET.ActiveCfg = Release|Win32
+		{0111A65E-A934-46C4-96D7-C9CD49B183F9}.Release|Mixed Platforms.ActiveCfg = Release|Win32
+		{0111A65E-A934-46C4-96D7-C9CD49B183F9}.Release|Mixed Platforms.Build.0 = Release|Win32
+		{0111A65E-A934-46C4-96D7-C9CD49B183F9}.Release|Win32.ActiveCfg = Release|Win32
+		{0111A65E-A934-46C4-96D7-C9CD49B183F9}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

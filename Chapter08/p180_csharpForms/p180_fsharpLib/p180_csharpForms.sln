@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{94D665CA-D915-4DE1-AA53-913450A1AE2D}") = "p180_csharpForms", "p180_csharpForms.fsharpp", "{75F0CBCA-23B9-4708-A30A-9DC89DEE2FB4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{75F0CBCA-23B9-4708-A30A-9DC89DEE2FB4}.Debug|Win32.ActiveCfg = Debug|Win32
+		{75F0CBCA-23B9-4708-A30A-9DC89DEE2FB4}.Debug|Win32.Build.0 = Debug|Win32
+		{75F0CBCA-23B9-4708-A30A-9DC89DEE2FB4}.Release|Win32.ActiveCfg = Release|Win32
+		{75F0CBCA-23B9-4708-A30A-9DC89DEE2FB4}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

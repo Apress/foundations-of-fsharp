@@ -1,0 +1,7 @@
+bin\Debug\p181_csharpForms.dll
+bin\Debug\p181_csharpForms.pdb
+obj\Debug\ResolveAssemblyReference.cache
+obj\Debug\p181_csharpForms.Properties.Resources.resources
+obj\Debug\p181_csharpForms.csproj.GenerateResource.Cache
+obj\Debug\p181_csharpForms.dll
+obj\Debug\p181_csharpForms.pdb

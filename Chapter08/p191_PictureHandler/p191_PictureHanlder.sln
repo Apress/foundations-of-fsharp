@@ -1,0 +1,64 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "C:\...\p189_PictureHanlder\", ".", "{AAB0106E-381C-4687-B75C-A78EC2AA0A82}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.VirtualPath = "/p189_PictureHanlder"
+		Debug.AspNetCompiler.PhysicalPath = "."
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\p189_PictureHanlder\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/p189_PictureHanlder"
+		Release.AspNetCompiler.PhysicalPath = "."
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\p189_PictureHanlder\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "51167"
+		DefaultWebSiteLanguage = "Visual Basic"
+	EndProjectSection
+EndProject
+Project("{94D665CA-D915-4DE1-AA53-913450A1AE2D}") = "HandlerModule", "HandlerModule.fsharpp", "{AA1A2D52-D790-4880-8D44-F444DC5AD395}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|.NET = Debug|.NET
+		Debug|Mixed Platforms = Debug|Mixed Platforms
+		Debug|Win32 = Debug|Win32
+		Release|.NET = Release|.NET
+		Release|Mixed Platforms = Release|Mixed Platforms
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AAB0106E-381C-4687-B75C-A78EC2AA0A82}.Debug|.NET.ActiveCfg = Debug|.NET
+		{AAB0106E-381C-4687-B75C-A78EC2AA0A82}.Debug|.NET.Build.0 = Debug|.NET
+		{AAB0106E-381C-4687-B75C-A78EC2AA0A82}.Debug|Mixed Platforms.ActiveCfg = Debug|.NET
+		{AAB0106E-381C-4687-B75C-A78EC2AA0A82}.Debug|Mixed Platforms.Build.0 = Debug|.NET
+		{AAB0106E-381C-4687-B75C-A78EC2AA0A82}.Debug|Win32.ActiveCfg = Debug|.NET
+		{AAB0106E-381C-4687-B75C-A78EC2AA0A82}.Release|.NET.ActiveCfg = Debug|.NET
+		{AAB0106E-381C-4687-B75C-A78EC2AA0A82}.Release|.NET.Build.0 = Debug|.NET
+		{AAB0106E-381C-4687-B75C-A78EC2AA0A82}.Release|Mixed Platforms.ActiveCfg = Debug|.NET
+		{AAB0106E-381C-4687-B75C-A78EC2AA0A82}.Release|Mixed Platforms.Build.0 = Debug|.NET
+		{AAB0106E-381C-4687-B75C-A78EC2AA0A82}.Release|Win32.ActiveCfg = Debug|.NET
+		{AA1A2D52-D790-4880-8D44-F444DC5AD395}.Debug|.NET.ActiveCfg = Debug|Win32
+		{AA1A2D52-D790-4880-8D44-F444DC5AD395}.Debug|Mixed Platforms.ActiveCfg = Debug|Win32
+		{AA1A2D52-D790-4880-8D44-F444DC5AD395}.Debug|Mixed Platforms.Build.0 = Debug|Win32
+		{AA1A2D52-D790-4880-8D44-F444DC5AD395}.Debug|Win32.ActiveCfg = Debug|Win32
+		{AA1A2D52-D790-4880-8D44-F444DC5AD395}.Debug|Win32.Build.0 = Debug|Win32
+		{AA1A2D52-D790-4880-8D44-F444DC5AD395}.Release|.NET.ActiveCfg = Release|Win32
+		{AA1A2D52-D790-4880-8D44-F444DC5AD395}.Release|Mixed Platforms.ActiveCfg = Release|Win32
+		{AA1A2D52-D790-4880-8D44-F444DC5AD395}.Release|Mixed Platforms.Build.0 = Release|Win32
+		{AA1A2D52-D790-4880-8D44-F444DC5AD395}.Release|Win32.ActiveCfg = Release|Win32
+		{AA1A2D52-D790-4880-8D44-F444DC5AD395}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

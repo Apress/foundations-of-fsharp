@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+<assembly><name>p121_doccomments</name></assembly>
+<members>
+<member name="M:Samples.divTen(System.Int32)">
+ <summary>
+ divides the given parameter by 10
+ </summary>
+ <param name="x">the thing to be divided by 10</param>
+</member>
+<member name="T:Samples">
+
+</member>
+</members>
+</doc>

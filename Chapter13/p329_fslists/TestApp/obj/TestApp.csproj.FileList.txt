@@ -1,0 +1,7 @@
+obj\Debug\ResolveAssemblyReference.cache
+bin\Debug\TestApp.exe
+bin\Debug\TestApp.pdb
+bin\Debug\fsharpfromcsharp.dll
+bin\Debug\fsharpfromcsharp.pdb
+obj\Debug\TestApp.exe
+obj\Debug\TestApp.pdb

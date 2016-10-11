@@ -1,0 +1,23 @@
+{
+open System
+open Pars
+open Lexing
+}
+
+let digit = ['0'-'9']
+let whitespace = [' ' '\t' ]
+let newline = ('\n' | '\r' '\n')
+
+rule token = parse
+| whitespace	{ token lexbuf }
+| newline { token lexbuf }
+| "("               { LPAREN }
+| ")"               { RPAREN }
+| "*"               { MULTI }
+| "/"               { DIV }
+| "+"               { PLUS }
+| "-"               { MINUS }
+| '['[^']']+']'	    { ID(lexeme lexbuf) }
+| ['-']?digit+('.'digit+)?(['e''E']digit+)?   
+                    { FLOAT (Double.Parse(lexeme lexbuf)) }
+| eof   { EOF }

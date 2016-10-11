@@ -1,0 +1,42 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{94D665CA-D915-4DE1-AA53-913450A1AE2D}") = "GoogleService", "GoogleService\GoogleService.fsharpp", "{5B43900C-F5C6-4607-AD32-3E61E4DB58E2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Proxy", "Proxy\Proxy.csproj", "{356D5A63-CD88-4714-8D16-796CE5263C0A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|Mixed Platforms = Debug|Mixed Platforms
+		Debug|Win32 = Debug|Win32
+		Release|Any CPU = Release|Any CPU
+		Release|Mixed Platforms = Release|Mixed Platforms
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5B43900C-F5C6-4607-AD32-3E61E4DB58E2}.Debug|Any CPU.ActiveCfg = Debug|Win32
+		{5B43900C-F5C6-4607-AD32-3E61E4DB58E2}.Debug|Mixed Platforms.ActiveCfg = Debug|Win32
+		{5B43900C-F5C6-4607-AD32-3E61E4DB58E2}.Debug|Mixed Platforms.Build.0 = Debug|Win32
+		{5B43900C-F5C6-4607-AD32-3E61E4DB58E2}.Debug|Win32.ActiveCfg = Debug|Win32
+		{5B43900C-F5C6-4607-AD32-3E61E4DB58E2}.Debug|Win32.Build.0 = Debug|Win32
+		{5B43900C-F5C6-4607-AD32-3E61E4DB58E2}.Release|Any CPU.ActiveCfg = Release|Win32
+		{5B43900C-F5C6-4607-AD32-3E61E4DB58E2}.Release|Mixed Platforms.ActiveCfg = Release|Win32
+		{5B43900C-F5C6-4607-AD32-3E61E4DB58E2}.Release|Mixed Platforms.Build.0 = Release|Win32
+		{5B43900C-F5C6-4607-AD32-3E61E4DB58E2}.Release|Win32.ActiveCfg = Release|Win32
+		{5B43900C-F5C6-4607-AD32-3E61E4DB58E2}.Release|Win32.Build.0 = Release|Win32
+		{356D5A63-CD88-4714-8D16-796CE5263C0A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{356D5A63-CD88-4714-8D16-796CE5263C0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{356D5A63-CD88-4714-8D16-796CE5263C0A}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{356D5A63-CD88-4714-8D16-796CE5263C0A}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{356D5A63-CD88-4714-8D16-796CE5263C0A}.Debug|Win32.ActiveCfg = Debug|Any CPU
+		{356D5A63-CD88-4714-8D16-796CE5263C0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{356D5A63-CD88-4714-8D16-796CE5263C0A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{356D5A63-CD88-4714-8D16-796CE5263C0A}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{356D5A63-CD88-4714-8D16-796CE5263C0A}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{356D5A63-CD88-4714-8D16-796CE5263C0A}.Release|Win32.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,9 @@
+obj\Debug\ResolveAssemblyReference.cache
+obj\Debug\p180_csharpForms.Properties.Resources.resources
+obj\Debug\p180_csharpForms.csproj.GenerateResource.Cache
+bin\Debug\p180_csharpForms.exe
+bin\Debug\p180_csharpForms.pdb
+bin\Debug\p180_fsharplib.dll
+bin\Debug\p180_fsharplib.pdb
+obj\Debug\p180_csharpForms.exe
+obj\Debug\p180_csharpForms.pdb

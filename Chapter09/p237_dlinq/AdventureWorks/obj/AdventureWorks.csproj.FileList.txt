@@ -1,0 +1,9 @@
+obj\Debug\ResolveAssemblyReference.cache
+bin\Debug\AdventureWorks.dll
+bin\Debug\AdventureWorks.pdb
+bin\Debug\System.Data.DLinq.dll
+bin\Debug\System.Data.Extensions.dll
+bin\Debug\System.Query.dll
+bin\Debug\System.Xml.XLinq.dll
+obj\Debug\AdventureWorks.dll
+obj\Debug\AdventureWorks.pdb

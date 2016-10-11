@@ -1,0 +1,5 @@
+bin\Debug\BioML.dll
+bin\Debug\BioML.pdb
+obj\Debug\ResolveAssemblyReference.cache
+obj\Debug\BioML.dll
+obj\Debug\BioML.pdb

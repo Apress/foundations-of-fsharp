@@ -1,0 +1,957 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="rnaml">
+    <xs:complexType>
+      <xs:choice maxOccurs="unbounded" minOccurs="0">
+        <xs:element ref="molecule"/>
+        <xs:element ref="molecule-class"/>
+        <xs:element ref="interactions"/>
+        <xs:element ref="reference"/>
+        <xs:element ref="database-entry"/>
+        <xs:element ref="analysis"/>
+        <xs:element ref="revision"/>
+      </xs:choice>
+      <xs:attribute name="version" use="required">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="1.1"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="comment" type="xs:string"/>
+      <xs:attribute name="reference-ids" type="xs:IDREFS"/>
+      <xs:attribute name="analysis-ids" type="xs:IDREFS"/>
+      <xs:attribute name="database-ids" type="xs:IDREFS"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="molecule">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="identity"/>
+        <xs:element maxOccurs="unbounded" minOccurs="0" ref="sequence"/>
+        <xs:element minOccurs="0" ref="structure"/>
+      </xs:sequence>
+      <xs:attribute name="id" type="xs:ID" use="required"/>
+      <xs:attribute default="rna" name="type">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="rna"/>
+	    <xs:enumeration value="dna"/>
+	  </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="comment" type="xs:string"/>
+      <xs:attribute name="reference-ids" type="xs:IDREFS"/>
+      <xs:attribute name="analysis-ids" type="xs:IDREFS"/>
+      <xs:attribute name="database-ids" type="xs:IDREFS"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="identity">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="name"/>
+	<xs:element minOccurs="0" ref="taxonomy"/>
+      </xs:sequence>
+      <xs:attribute name="comment" type="xs:string"/>
+      <xs:attribute name="reference-ids" type="xs:IDREFS"/>
+      <xs:attribute name="analysis-ids" type="xs:IDREFS"/>
+      <xs:attribute name="database-ids" type="xs:IDREFS"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="name" type="xs:string"/>
+
+  <xs:element name="sequence">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" minOccurs="0" ref="numbering-system"/>
+	<xs:element minOccurs="0" ref="seq-data"/>
+	<xs:element minOccurs="0" ref="seq-annotation"/>
+      </xs:sequence>
+      <xs:attribute name="strand" type="xs:string"/>
+      <xs:attribute name="length" type="xs:positiveInteger"/>
+      <xs:attribute name="circular" type="xs:boolean"/>
+      <xs:attribute name="comment" type="xs:string"/>
+      <xs:attribute name="reference-ids" type="xs:IDREFS"/>
+      <xs:attribute name="analysis-ids" type="xs:IDREFS"/>
+      <xs:attribute name="database-ids" type="xs:IDREFS"/>
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:element name="numbering-system">
+    <xs:complexType>
+      <xs:choice>
+	<xs:sequence maxOccurs="unbounded" minOccurs="0">
+	  <xs:element ref="numbering-range"/>
+	</xs:sequence>
+	<xs:element ref="numbering-table"/>
+      </xs:choice>
+      <xs:attribute name="id" type="xs:ID" use="required"/>
+      <xs:attribute default="false" name="used-in-file" type="xs:boolean"/>
+      <xs:attribute name="comment" type="xs:string"/>
+      <xs:attribute name="reference-ids" type="xs:IDREFS"/>
+      <xs:attribute name="analysis-ids" type="xs:IDREFS"/>
+      <xs:attribute name="database-ids" type="xs:IDREFS"/>
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:element name="numbering-range">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="start"/>
+	<xs:choice>
+	  <xs:element ref="end"/>
+	  <xs:element ref="length"/>
+	</xs:choice>
+      </xs:sequence>
+      <xs:attribute name="comment" type="xs:string"/>
+      <xs:attribute name="reference-ids" type="xs:IDREFS"/>
+      <xs:attribute name="analysis-ids" type="xs:IDREFS"/>
+      <xs:attribute name="database-ids" type="xs:IDREFS"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:simpleType name="numberingElements">
+    <xs:list itemType="xs:positiveInteger"/>
+  </xs:simpleType>
+  
+  <xs:element name="numbering-table">
+    <xs:complexType>
+      <xs:simpleContent>
+	<xs:extension base="numberingElements">
+	  <xs:attribute name="length" type="xs:positiveInteger" use="required"/>
+	  <xs:attribute name="comment" type="xs:string"/>
+	  <xs:attribute name="reference-ids" type="xs:IDREFS"/>
+	  <xs:attribute name="analysis-ids" type="xs:IDREFS"/>
+	  <xs:attribute name="database-ids" type="xs:IDREFS"/>
+	</xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:simpleType name="seq-data-string">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[GAUCRYMKSWHBVDN]+"/>
+    </xs:restriction>
+  </xs:simpleType>
+    
+  <xs:element name="seq-data">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="seq-data-string">
+	  <xs:attribute name="comment" type="xs:string"/>
+	  <xs:attribute name="reference-ids" type="xs:IDREFS"/>
+	  <xs:attribute name="analysis-ids" type="xs:IDREFS"/>
+	  <xs:attribute name="database-ids" type="xs:IDREFS"/>
+	</xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:element name="seq-annotation">
+    <xs:complexType>
+      <xs:choice maxOccurs="unbounded" minOccurs="0">
+        <xs:element ref="modification"/>
+	<xs:element ref="segment"/>
+      </xs:choice>
+      <xs:attribute name="comment" type="xs:string"/>
+      <xs:attribute name="reference-ids" type="xs:IDREFS"/>
+      <xs:attribute name="analysis-ids" type="xs:IDREFS"/>
+      <xs:attribute name="database-ids" type="xs:IDREFS"/>
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:element name="modification">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="base-id"/>
+	<xs:element ref="modified-type"/>
+      </xs:sequence>
+      <xs:attribute name="comment" type="xs:string"/>
+      <xs:attribute name="reference-ids" type="xs:IDREFS"/>
+      <xs:attribute name="analysis-ids" type="xs:IDREFS"/>
+      <xs:attribute name="database-ids" type="xs:IDREFS"/>
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:element name="modified-type" type="xs:string"/>
+
+  <xs:element name="segment">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="seg-name"/>
+	<xs:element ref="base-id-5p"/>
+	<xs:choice>
+	  <xs:element ref="base-id-3p"/>
+	  <xs:element ref="length"/>
+	</xs:choice>
+      </xs:sequence>
+      <xs:attribute name="comment" type="xs:string"/>
+      <xs:attribute name="reference-ids" type="xs:IDREFS"/>
+      <xs:attribute name="analysis-ids" type="xs:IDREFS"/>
+      <xs:attribute name="database-ids" type="xs:IDREFS"/>
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:element name="seg-name" type="xs:string"/>
+  
+  <xs:element name="structure">
+    <xs:complexType>
+      <xs:sequence maxOccurs="unbounded" minOccurs="0">
+        <xs:element ref="model"/>
+      </xs:sequence>
+      <xs:attribute name="comment" type="xs:string"/>
+      <xs:attribute name="reference-ids" type="xs:IDREFS"/>
+      <xs:attribute name="analysis-ids" type="xs:IDREFS"/>
+      <xs:attribute name="database-ids" type="xs:IDREFS"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="model">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="model-info"/>
+	<xs:element maxOccurs="unbounded" minOccurs="0" ref="base"/>
+	<xs:element minOccurs="0" ref="str-annotation"/>
+	<xs:element minOccurs="0" ref="secondary-structure-display"/>
+      </xs:sequence>
+      <xs:attribute name="id" type="xs:ID"/>
+      <xs:attribute name="comment" type="xs:string"/>
+      <xs:attribute name="reference-ids" type="xs:IDREFS"/>
+      <xs:attribute name="analysis-ids" type="xs:IDREFS"/>
+      <xs:attribute name="database-ids" type="xs:IDREFS"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="model-info">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="method"/>
+	<xs:element minOccurs="0" ref="resolution"/>
+	<xs:element maxOccurs="unbounded" minOccurs="0" ref="free-energy"/>
+      </xs:sequence>
+      <xs:attribute name="comment" type="xs:string"/>
+      <xs:attribute name="reference-ids" type="xs:IDREFS"/>
+      <xs:attribute name="analysis-ids" type="xs:IDREFS"/>
+      <xs:attribute name="database-ids" type="xs:IDREFS"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="method">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:string">
+	  <xs:attribute name="comment" type="xs:string"/>
+	  <xs:attribute name="reference-ids" type="xs:IDREFS"/>
+	  <xs:attribute name="analysis-ids" type="xs:IDREFS"/>
+	  <xs:attribute name="database-ids" type="xs:IDREFS"/>
+	</xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="resolution">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:float">
+	  <xs:attribute name="comment" type="xs:string"/>
+	  <xs:attribute name="reference-ids" type="xs:IDREFS"/>
+	  <xs:attribute name="analysis-ids" type="xs:IDREFS"/>
+	  <xs:attribute name="database-ids" type="xs:IDREFS"/>
+	</xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="free-energy">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:float">
+	  <xs:attribute name="comment" type="xs:string"/>
+	  <xs:attribute name="reference-ids" type="xs:IDREFS"/>
+	  <xs:attribute name="analysis-ids" type="xs:IDREFS"/>
+	  <xs:attribute name="database-ids" type="xs:IDREFS"/>
+	</xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="base">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="strand"/>
+	<xs:element ref="position"/>
+	<xs:element minOccurs="0" ref="base-type"/>
+	<xs:element minOccurs="0" ref="alt-loc"/>
+	<xs:element minOccurs="0" ref="insertion"/>
+	<xs:element maxOccurs="unbounded" minOccurs="0" ref="atom"/>
+      </xs:sequence>
+      <xs:attribute name="comment" type="xs:string"/>
+      <xs:attribute name="reference-ids" type="xs:IDREFS"/>
+      <xs:attribute name="analysis-ids" type="xs:IDREFS"/>
+      <xs:attribute name="database-ids" type="xs:IDREFS"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="base-type" type="xs:string"/>
+
+  <xs:element name="alt-loc">
+    <xs:simpleType>
+      <xs:restriction base="xs:string">
+        <xs:length value="1"/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+
+  <xs:element name="insertion">
+    <xs:simpleType>
+      <xs:restriction base="xs:string">
+        <xs:length value="1"/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+
+  <xs:element name="atom">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="atom-type"/>
+	<xs:element minOccurs="0" ref="coordinates"/>
+	<xs:element minOccurs="0" ref="occupancy"/>
+	<xs:element minOccurs="0" ref="temp-factor"/>
+	<xs:element minOccurs="0" ref="seg-id"/>
+	<xs:element minOccurs="0" ref="element"/>
+	<xs:element minOccurs="0" ref="charge"/>
+      </xs:sequence>
+      <xs:attribute name="serial" type="xs:positiveInteger"/>
+      <xs:attribute name="comment" type="xs:string"/>
+      <xs:attribute name="reference-ids" type="xs:IDREFS"/>
+      <xs:attribute name="analysis-ids" type="xs:IDREFS"/>
+      <xs:attribute name="database-ids" type="xs:IDREFS"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="atom-type" type="xs:string"/>
+
+  <xs:simpleType name='coordinate-list'>
+    <xs:restriction>
+      <xs:simpleType>
+        <xs:list itemType='xs:float'/>
+      </xs:simpleType>
+      <xs:minLength value='2'/>
+      <xs:maxLength value='3'/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:element name='coordinates'>
+    <xs:complexType>
+      <xs:simpleContent>
+	<xs:extension base="coordinate-list">
+	  <xs:anyAttribute/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:element name="occupancy" type="xs:float"/>
+  
+  <xs:element name="temp-factor" type="xs:float"/>
+
+  <xs:element name="seg-id" type="xs:string"/>
+
+  <xs:element name="element" type="xs:string"/>
+
+  <xs:element name="charge" type="xs:string"/>
+
+  <xs:element name="str-annotation">
+    <xs:complexType>
+      <xs:choice maxOccurs="unbounded" minOccurs="0">
+        <xs:element ref="base-conformation"/>
+	<xs:element ref="base-pair"/>
+	<xs:element ref="base-triple"/>
+	<xs:element ref="base-stack"/>
+	<xs:element ref="helix"/>
+	<xs:element ref="pseudoknot"/>
+	<xs:element ref="single-strand"/>
+	<xs:element ref="distance-constraint"/>
+	<xs:element ref="surface-constraint"/>
+      </xs:choice>
+      <xs:attribute name="comment" type="xs:string"/>
+      <xs:attribute name="reference-ids" type="xs:IDREFS"/>
+      <xs:attribute name="analysis-ids" type="xs:IDREFS"/>
+      <xs:attribute name="database-ids" type="xs:IDREFS"/>
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:element name="base-conformation">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="base-id"/>
+	<xs:element minOccurs="0" ref="pucker"/>
+	<xs:element minOccurs="0" ref="glycosyl"/>
+	<xs:element minOccurs="0" ref="base-torsion-angles"/>
+      </xs:sequence>
+      <xs:attribute name="comment" type="xs:string"/>
+      <xs:attribute name="reference-ids" type="xs:IDREFS"/>
+      <xs:attribute name="analysis-ids" type="xs:IDREFS"/>
+      <xs:attribute name="database-ids" type="xs:IDREFS"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="pucker" type="xs:string"/>
+  
+  <xs:element name="glycosyl" type="xs:string"/>
+
+  <xs:element name="base-torsion-angles">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="alpha"/>
+	<xs:element minOccurs="0" ref="beta"/>
+	<xs:element minOccurs="0" ref="gamma"/>
+	<xs:element minOccurs="0" ref="delta"/>
+	<xs:element minOccurs="0" ref="epsilon"/>
+	<xs:element minOccurs="0" ref="zeta"/>
+	<xs:element minOccurs="0" ref="chi"/>
+	<xs:element minOccurs="0" ref="nu0"/>
+	<xs:element minOccurs="0" ref="nu1"/>
+	<xs:element minOccurs="0" ref="nu2"/>
+	<xs:element minOccurs="0" ref="nu3"/>
+	<xs:element minOccurs="0" ref="nu4"/>
+      </xs:sequence>
+      <xs:attribute name="comment" type="xs:string"/>
+      <xs:attribute name="reference-ids" type="xs:IDREFS"/>
+      <xs:attribute name="analysis-ids" type="xs:IDREFS"/>
+      <xs:attribute name="database-ids" type="xs:IDREFS"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="alpha" type="xs:float"/>
+
+  <xs:element name="beta" type="xs:float"/>
+
+  <xs:element name="gamma" type="xs:float"/>
+
+  <xs:element name="delta" type="xs:float"/>
+
+  <xs:element name="epsilon" type="xs:float"/>
+
+  <xs:element name="zeta" type="xs:float"/>
+
+  <xs:element name="chi" type="xs:float"/>
+
+  <xs:element name="nu0" type="xs:float"/>
+
+  <xs:element name="nu1" type="xs:float"/>
+
+  <xs:element name="nu2" type="xs:float"/>
+
+  <xs:element name="nu3" type="xs:float"/>
+
+  <xs:element name="nu4" type="xs:float"/>
+
+  <xs:element name="base-pair">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="base-id-5p"/>
+	<xs:element ref="base-id-3p"/>
+	<xs:element minOccurs="0" ref="edge-5p"/>
+	<xs:element minOccurs="0" ref="edge-3p"/>
+	<xs:element minOccurs="0" ref="bond-orientation"/>
+	<xs:element minOccurs="0" ref="strand-orientation"/>
+      </xs:sequence>
+      <xs:attribute name="comment" type="xs:string"/>
+      <xs:attribute name="reference-ids" type="xs:IDREFS"/>
+      <xs:attribute name="analysis-ids" type="xs:IDREFS"/>
+      <xs:attribute name="database-ids" type="xs:IDREFS"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="base-id-5p">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="base-id"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:element name="base-id-3p">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="base-id"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:element name="edge-5p" type="xs:string"/>
+
+  <xs:element name="edge-3p" type="xs:string"/>
+
+  <xs:element name="bond-orientation" type="xs:string"/>
+
+  <xs:element name="strand-orientation" type="xs:string"/>
+
+  <xs:element name="base-triple">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:choice>
+	  <xs:element ref="base-pair"/>
+	  <xs:element ref="base-pair-id"/>
+	</xs:choice>
+	<xs:choice>
+	  <xs:element ref="base-pair"/>
+	  <xs:element ref="base-pair-id"/>
+	</xs:choice>
+	<xs:choice>
+	  <xs:element ref="base-pair"/>
+	  <xs:element ref="base-pair-id"/>
+	</xs:choice>
+      </xs:sequence>
+      <xs:attribute name="comment" type="xs:string"/>
+      <xs:attribute name="reference-ids" type="xs:IDREFS"/>
+      <xs:attribute name="analysis-ids" type="xs:IDREFS"/>
+      <xs:attribute name="database-ids" type="xs:IDREFS"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="base-stack">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="base-id"/>
+	<xs:element ref="base-id"/>
+      </xs:sequence>
+      <xs:attribute name="comment" type="xs:string"/>
+      <xs:attribute name="reference-ids" type="xs:IDREFS"/>
+      <xs:attribute name="analysis-ids" type="xs:IDREFS"/>
+      <xs:attribute name="database-ids" type="xs:IDREFS"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="helix">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="base-id-5p"/>
+	<xs:element ref="base-id-3p"/>
+	<xs:element ref="length"/>
+      </xs:sequence>
+      <xs:attribute name="id" type="xs:ID"/>
+      <xs:attribute name="comment" type="xs:string"/>
+      <xs:attribute name="reference-ids" type="xs:IDREFS"/>
+      <xs:attribute name="analysis-ids" type="xs:IDREFS"/>
+      <xs:attribute name="database-ids" type="xs:IDREFS"/>
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:element name="pseudoknot">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="helix-id"/>
+	<xs:element ref="helix-id"/>
+      </xs:sequence>
+      <xs:attribute name="comment" type="xs:string"/>
+      <xs:attribute name="reference-ids" type="xs:IDREFS"/>
+      <xs:attribute name="analysis-ids" type="xs:IDREFS"/>
+      <xs:attribute name="database-ids" type="xs:IDREFS"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="helix-id">
+    <xs:complexType>
+      <xs:attribute name="ref" type="xs:IDREF" use="required"/>
+      <xs:attribute name="comment" type="xs:string"/>
+      <xs:attribute name="reference-ids" type="xs:IDREFS"/>
+      <xs:attribute name="analysis-ids" type="xs:IDREFS"/>
+      <xs:attribute name="database-ids" type="xs:IDREFS"/>
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:element name="single-strand">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="segment"/>
+      </xs:sequence>
+      <xs:attribute name="comment" type="xs:string"/>
+      <xs:attribute name="reference-ids" type="xs:IDREFS"/>
+      <xs:attribute name="analysis-ids" type="xs:IDREFS"/>
+      <xs:attribute name="database-ids" type="xs:IDREFS"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="distance-constraint">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="base-id"/>
+	<xs:element ref="atom-type"/>
+	<xs:element ref="base-id"/>
+	<xs:element ref="atom-type"/>
+	<xs:element ref="mean"/>
+	<xs:element minOccurs="0" ref="range"/>
+	<xs:element minOccurs="0" ref="weight"/>
+      </xs:sequence>
+      <xs:attribute name="comment" type="xs:string"/>
+      <xs:attribute name="reference-ids" type="xs:IDREFS"/>
+      <xs:attribute name="analysis-ids" type="xs:IDREFS"/>
+      <xs:attribute name="database-ids" type="xs:IDREFS"/>
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:element name="mean" type="xs:float"/>
+
+  <xs:element name="range" type="xs:float"/>
+
+  <xs:element name="weight" type="xs:float"/>
+
+  <xs:element name="surface-constraint">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="base-id"/>
+	<xs:element ref="atom-type"/>
+	<xs:element minOccurs="0" ref="surface-value"/>
+      </xs:sequence>
+      <xs:attribute name="comment" type="xs:string"/>
+      <xs:attribute name="reference-ids" type="xs:IDREFS"/>
+      <xs:attribute name="analysis-ids" type="xs:IDREFS"/>
+      <xs:attribute name="database-ids" type="xs:IDREFS"/>
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:element name="surface-value" type="xs:float"/>
+
+  <xs:element name="secondary-structure-display">
+    <xs:complexType>
+      <xs:sequence maxOccurs="unbounded" minOccurs="0">
+        <xs:element ref="ss-base-coord"/>
+      </xs:sequence>
+      <xs:attribute name="comment" type="xs:string"/>
+      <xs:attribute name="reference-ids" type="xs:IDREFS"/>
+      <xs:attribute name="analysis-ids" type="xs:IDREFS"/>
+      <xs:attribute name="database-ids" type="xs:IDREFS"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="ss-base-coord">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="base-id"/>
+	<xs:element ref="coordinates"/>
+      </xs:sequence>
+      <xs:attribute name="comment" type="xs:string"/>
+      <xs:attribute name="reference-ids" type="xs:IDREFS"/>
+      <xs:attribute name="analysis-ids" type="xs:IDREFS"/>
+      <xs:attribute name="database-ids" type="xs:IDREFS"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="molecule-class">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="identity"/>
+	<xs:choice maxOccurs="unbounded" minOccurs="0">
+	  <xs:element ref="molecule"/>
+	  <xs:element ref="molecule-id"/>
+	  <xs:element ref="numbering-system"/>
+	  <xs:element ref="consensus-molecule"/>
+	  <xs:element ref="alignment"/>
+	</xs:choice>
+      </xs:sequence>
+      <xs:attribute name="comment" type="xs:string"/>
+      <xs:attribute name="reference-ids" type="xs:IDREFS"/>
+      <xs:attribute name="analysis-ids" type="xs:IDREFS"/>
+      <xs:attribute name="database-ids" type="xs:IDREFS"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="consensus-molecule">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="alignment-id"/>
+	<xs:element ref="molecule"/>
+      </xs:sequence>
+      <xs:attribute name="comment" type="xs:string"/>
+      <xs:attribute name="reference-ids" type="xs:IDREFS"/>
+      <xs:attribute name="analysis-ids" type="xs:IDREFS"/>
+      <xs:attribute name="database-ids" type="xs:IDREFS"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="alignment">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" minOccurs="0" ref="ali-sequence"/>
+      </xs:sequence>
+      <xs:attribute name="id" type="xs:ID" use="required"/>
+      <xs:attribute name="comment" type="xs:string"/>
+      <xs:attribute name="reference-ids" type="xs:IDREFS"/>
+      <xs:attribute name="analysis-ids" type="xs:IDREFS"/>
+      <xs:attribute name="database-ids" type="xs:IDREFS"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="ali-sequence">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="molecule-id"/>
+	<xs:element ref="seq-data"/>
+      </xs:sequence>
+      <xs:attribute name="comment" type="xs:string"/>
+      <xs:attribute name="reference-ids" type="xs:IDREFS"/>
+      <xs:attribute name="analysis-ids" type="xs:IDREFS"/>
+      <xs:attribute name="database-ids" type="xs:IDREFS"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="interactions">
+    <xs:complexType>
+      <xs:sequence maxOccurs="unbounded" minOccurs="0">
+        <xs:element ref="str-annotation"/>
+      </xs:sequence>
+      <xs:attribute name="comment" type="xs:string"/>
+      <xs:attribute name="reference-ids" type="xs:IDREFS"/>
+      <xs:attribute name="analysis-ids" type="xs:IDREFS"/>
+      <xs:attribute name="database-ids" type="xs:IDREFS"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="taxonomy">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="domain"/>
+	<xs:element minOccurs="0" ref="kingdom"/>
+	<xs:element minOccurs="0" ref="phylum"/>
+	<xs:element minOccurs="0" ref="class"/>
+	<xs:element minOccurs="0" ref="order"/>
+	<xs:element minOccurs="0" ref="family"/>
+	<xs:element minOccurs="0" ref="genus"/>
+	<xs:element minOccurs="0" ref="species"/>
+	<xs:element minOccurs="0" ref="strain"/>
+      </xs:sequence>
+      <xs:attribute name="comment" type="xs:string"/>
+      <xs:attribute name="reference-ids" type="xs:IDREFS"/>
+      <xs:attribute name="analysis-ids" type="xs:IDREFS"/>
+      <xs:attribute name="database-ids" type="xs:IDREFS"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="domain" type="xs:string"/>
+
+  <xs:element name="kingdom" type="xs:string"/>
+
+  <xs:element name="phylum" type="xs:string"/>
+
+  <xs:element name="class" type="xs:string"/>
+
+  <xs:element name="order" type="xs:string"/>
+
+  <xs:element name="family" type="xs:string"/>
+
+  <xs:element name="genus" type="xs:string"/>
+
+  <xs:element name="species" type="xs:string"/>
+
+  <xs:element name="strain" type="xs:string"/>
+
+  <xs:element name="reference">
+    <xs:complexType>
+      <xs:choice maxOccurs="unbounded" minOccurs="0">
+        <xs:element ref="author"/>
+	<xs:element ref="title"/>
+	<xs:element ref="journal"/>
+	<xs:element ref="date"/>
+	<xs:element ref="pubmed-id"/>
+	<xs:element ref="book-title"/>
+	<xs:element ref="editor"/>
+	<xs:element ref="volume"/>
+	<xs:element ref="issue"/>
+	<xs:element ref="pages"/>
+	<xs:element ref="path"/>
+      </xs:choice>
+      <xs:attribute name="id" type="xs:ID" use="required"/>
+      <xs:attribute name="comment" type="xs:string"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="author">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="person"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="title" type="xs:string"/>
+
+  <xs:element name="journal" type="xs:string"/>
+
+  <xs:element name="pubmed-id" type="xs:string"/>
+
+  <xs:element name="book-title" type="xs:string"/>
+
+  <xs:element name="editor" type="xs:string"/>
+
+  <xs:element name="volume" type="xs:integer"/>
+
+  <xs:element name="issue" type="xs:integer"/>
+
+  <xs:element name="pages">
+    <xs:simpleType>
+      <xs:restriction base="xs:string">
+        <xs:pattern value="[0-9]+,[0-9]+"/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+
+  <xs:element name="database-entry">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="database"/>
+	<xs:element ref="entry"/>
+	<xs:element minOccurs="0" ref="path"/>
+      </xs:sequence>
+      <xs:attribute name="id" type="xs:ID" use="required"/>
+      <xs:attribute name="comment" type="xs:string"/>
+      <xs:attribute name="reference-ids" type="xs:IDREFS"/>
+      <xs:attribute name="analysis-ids" type="xs:IDREFS"/>
+      <xs:attribute name="database-ids" type="xs:IDREFS"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="database" type="xs:string"/>
+
+  <xs:element name="entry" type="xs:string"/>
+
+  <xs:element name="analysis">
+    <xs:complexType>
+      <xs:choice maxOccurs="unbounded" minOccurs="0">
+        <xs:element ref="program"/>
+	<xs:element ref="date"/>
+	<xs:element ref="author"/>
+	<xs:element ref="reference"/>
+      </xs:choice>
+      <xs:attribute name="id" type="xs:ID" use="required"/>
+      <xs:attribute name="comment" type="xs:string"/>
+      <xs:attribute name="reference-ids" type="xs:IDREFS"/>
+      <xs:attribute name="analysis-ids" type="xs:IDREFS"/>
+      <xs:attribute name="database-ids" type="xs:IDREFS"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="revision">
+    <xs:complexType mixed="true">
+      <xs:choice maxOccurs="unbounded" minOccurs="0">
+        <xs:element ref="date"/>
+      </xs:choice>
+      <xs:attribute name="comment" type="xs:string"/>
+      <xs:attribute name="reference-ids" type="xs:IDREFS"/>
+      <xs:attribute name="analysis-ids" type="xs:IDREFS"/>
+      <xs:attribute name="database-ids" type="xs:IDREFS"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="url" type="xs:anyURI"/>
+
+  <xs:element name="file" type="xs:string"/>
+
+  <xs:element name="path">
+    <xs:complexType>
+      <xs:choice>
+        <xs:element ref="url"/>
+	<xs:element ref="file"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="person">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="first-name"/>
+	<xs:element ref="last-name"/>
+	<xs:element maxOccurs="unbounded" minOccurs="0" ref="affiliation"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="first-name" type="xs:string"/>
+
+  <xs:element name="last-name" type="xs:string"/>
+
+  <xs:element name="affiliation" type="xs:string"/>
+
+  <xs:element name="program">
+    <xs:complexType>
+      <xs:choice maxOccurs="unbounded" minOccurs="0">
+        <xs:element ref="prog-name"/>
+	<xs:element ref="prog-version"/>
+	<xs:element ref="reference"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="prog-name" type="xs:string"/>
+
+  <xs:element name="prog-version" type="xs:string"/>
+
+  <xs:element name="date">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="day"/>
+	<xs:element minOccurs="0" ref="month"/>
+	<xs:element ref="year"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="day" type="xs:integer"/>
+
+  <xs:element name="month" type="xs:integer"/>
+
+  <xs:element name="year" type="xs:integer"/>
+
+  <xs:element name="position" type="xs:nonNegativeInteger"/>
+
+  <xs:element name="start" type="xs:nonNegativeInteger"/>
+
+  <xs:element name="end" type="xs:nonNegativeInteger"/>
+
+  <xs:element name="length" type="xs:nonNegativeInteger"/>
+
+  <xs:element name="base-id">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="molecule-id"/>
+	<xs:element minOccurs="0" ref="model-id"/>
+	<xs:element minOccurs="0" ref="strand"/>
+	<xs:element ref="position"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="molecule-id">
+    <xs:complexType>
+      <xs:attribute name="ref" type="xs:IDREF" use="required"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="model-id">
+    <xs:complexType>
+      <xs:attribute name="ref" type="xs:IDREF"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="strand" type="xs:string"/>
+
+  <xs:element name="base-pair-id">
+    <xs:complexType>
+      <xs:attribute name="ref" type="xs:IDREF" use="required"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="alignment-id">
+    <xs:complexType>
+      <xs:attribute name="ref" type="xs:IDREF" use="required"/>
+    </xs:complexType>
+  </xs:element>
+
+</xs:schema>
+

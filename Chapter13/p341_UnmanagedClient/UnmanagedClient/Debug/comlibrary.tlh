@@ -1,0 +1,70 @@
+﻿// Created by Microsoft (R) C/C++ Compiler Version 14.00.50727.762 (2c69675a).
+//
+// c:\users\robert\documents\books\foundations of f#\code_final\chapter13\p341_unmanagedclient\unmanagedclient\debug\comlibrary.tlh
+//
+// C++ source equivalent of Win32 type library ..\ComLibrary\ComLibrary.tlb
+// compiler-generated file created 05/20/07 at 16:43:59 - DO NOT EDIT!
+
+#pragma once
+#pragma pack(push, 8)
+
+#include <comdef.h>
+
+namespace comlibrary {
+
+//
+// Forward references and typedefs
+//
+
+struct __declspec(uuid("d0ea532e-8017-33b1-bac5-33b16e448580"))
+/* LIBID */ __comlibrary;
+struct /* coclass */ Math;
+struct __declspec(uuid("6180b9df-2ba7-4a9f-8b67-ad43d4ee0563"))
+/* dual interface */ IMath;
+
+//
+// Smart pointer typedef declarations
+//
+
+_COM_SMARTPTR_TYPEDEF(IMath, __uuidof(IMath));
+
+//
+// Type library items
+//
+
+struct __declspec(uuid("b040b134-734b-4a57-8b46-9090b41f0d62"))
+Math;
+    // interface _Object
+    // [ default ] interface IMath
+
+struct __declspec(uuid("6180b9df-2ba7-4a9f-8b67-ad43d4ee0563"))
+IMath : IDispatch
+{
+    //
+    // Raw methods provided by interface
+    //
+
+      virtual HRESULT __stdcall Sub (
+        /*[in]*/ long x,
+        /*[in]*/ long y,
+        /*[out,retval]*/ long * pRetVal ) = 0;
+      virtual HRESULT __stdcall Add (
+        /*[in]*/ long x,
+        /*[in]*/ long y,
+        /*[out,retval]*/ long * pRetVal ) = 0;
+};
+
+//
+// Named GUID constants initializations
+//
+
+extern "C" const GUID __declspec(selectany) LIBID_comlibrary =
+    {0xd0ea532e,0x8017,0x33b1,{0xba,0xc5,0x33,0xb1,0x6e,0x44,0x85,0x80}};
+extern "C" const GUID __declspec(selectany) CLSID_Math =
+    {0xb040b134,0x734b,0x4a57,{0x8b,0x46,0x90,0x90,0xb4,0x1f,0x0d,0x62}};
+extern "C" const GUID __declspec(selectany) IID_IMath =
+    {0x6180b9df,0x2ba7,0x4a9f,{0x8b,0x67,0xad,0x43,0xd4,0xee,0x05,0x63}};
+
+} // namespace comlibrary
+
+#pragma pack(pop)

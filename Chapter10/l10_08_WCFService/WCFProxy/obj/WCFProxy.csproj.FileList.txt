@@ -1,0 +1,5 @@
+bin\Debug\WCFProxy.dll
+bin\Debug\WCFProxy.pdb
+obj\Debug\ResolveAssemblyReference.cache
+obj\Debug\WCFProxy.dll
+obj\Debug\WCFProxy.pdb

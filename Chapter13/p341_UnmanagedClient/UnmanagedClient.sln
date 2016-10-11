@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "UnmanagedClient", "UnmanagedClient\UnmanagedClient.vcproj", "{9910BB12-6A94-49D8-BCA0-5A00CAF5C43F}"
+EndProject
+Project("{94D665CA-D915-4DE1-AA53-913450A1AE2D}") = "ComLibrary", "ComLibrary\ComLibrary.fsharpp", "{1CDD7DE2-F128-46EC-9FB9-965ECE5DFD30}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9910BB12-6A94-49D8-BCA0-5A00CAF5C43F}.Debug|Win32.ActiveCfg = Debug|Win32
+		{9910BB12-6A94-49D8-BCA0-5A00CAF5C43F}.Debug|Win32.Build.0 = Debug|Win32
+		{9910BB12-6A94-49D8-BCA0-5A00CAF5C43F}.Release|Win32.ActiveCfg = Release|Win32
+		{9910BB12-6A94-49D8-BCA0-5A00CAF5C43F}.Release|Win32.Build.0 = Release|Win32
+		{1CDD7DE2-F128-46EC-9FB9-965ECE5DFD30}.Debug|Win32.ActiveCfg = Debug|Win32
+		{1CDD7DE2-F128-46EC-9FB9-965ECE5DFD30}.Debug|Win32.Build.0 = Debug|Win32
+		{1CDD7DE2-F128-46EC-9FB9-965ECE5DFD30}.Release|Win32.ActiveCfg = Release|Win32
+		{1CDD7DE2-F128-46EC-9FB9-965ECE5DFD30}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
